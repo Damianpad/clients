@@ -11,15 +11,15 @@ const dbConnectionStr = `mongodb+srv://dami:dami444@cluster0.hstkn5y.mongodb.net
 MongoClient.connect(dbConnectionStr, { useUnifiedTopology: true })
     .then(client => {
         console.log(`Connected to ${dbName} Database`)
-        const db = client.db('clients')
+        const db = client.db('clients-database')
         const clientCollection = db.collection('clients')
 
         //============
         // Middlewares
         //============
         app.set('view engine', 'ejs')
-        app.use(bodyParser.urlencoded({ extend: true }))
         app.use(express.static('public'))
+        app.use(bodyParser.urlencoded({ extend: true }))
         app.use(express.json())
 
         //=======
@@ -35,11 +35,11 @@ MongoClient.connect(dbConnectionStr, { useUnifiedTopology: true })
         })
         
         app.post('/addClient', (req, res) => {
-            clientCollection.insertOne(req.body)
-            .then(result => {
-                res.redirect('/')
-            })
-            .catch(error => console.error(error))
+            clientCollection.insertOne({name: req.body.clientName, phone: req.body.clientPhone})
+                .then(result => {
+                    res.redirect('/')
+                })
+                .catch(error => console.error(error))
         })
 
         app.put('/addClient', (req, res) => {
@@ -57,7 +57,15 @@ MongoClient.connect(dbConnectionStr, { useUnifiedTopology: true })
             .then(result => res.json('Success'))
             .catch(error => console.error(error))
         })
-        app.delete()
+        
+        app.delete('/deleteClient', (req, res) => {
+            db.collection('clients').deleteOne({name: req.body.itemFromJS})
+                .then(result => {
+                    console.log('Client Deleted')
+                    res.json('Deleted Client')
+                })
+                .catch(error => console.error(error))
+        })
 
     })
     .catch(console.error)

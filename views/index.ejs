@@ -18,11 +18,12 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Todo List: </h1>
+    <h1>Clients: </h1>
     <ul class="clients">
     <% for(let i=0; i < clients.length; i++) {%>
         <li class="client">
-            <span><%= clients[i].clients %></span>
+            <span><%= clients[i].name %></span>
+            <span><%= clients[i].phone %></span>
             <!-- <% if(clients[i].completed === true) {%>
                 <span class='completed'><%= clients[i].clients %></span>
             <% }else{ %>
@@ -37,7 +38,8 @@
     <h2>Add A Todo:</h2>
 
     <form action="/addClient" method="POST">
-        <input type="text" placeholder="Client" name="client">
+        <input type="text" placeholder="Client Name" name="clientName">
+        <input type="text" placeholder="Client Phone" name="clientPhone">
         <input type="submit">
     </form>
     
