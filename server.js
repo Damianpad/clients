@@ -57,7 +57,7 @@ MongoClient.connect(dbConnectionStr, { useUnifiedTopology: true })
             .then(result => res.json('Success'))
             .catch(error => console.error(error))
         })
-        //app.delete()
+        app.delete()
 
     })
     .catch(console.error)
