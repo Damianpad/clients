@@ -1,0 +1,42 @@
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body {
+    
+}
+
+h1, h2 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+}
+
+li {
+
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items:  center;
+    padding: 1.3em;
+    font-size: 2em;
+}
+
+span {
+    padding: 2em;
+}
+
+.clients {
+    border: 1px solid black;
+
+}
+
+.fa-trash {
+
+}
+
+.fa-trash:hover {
+    cursor: pointer;
+    color: red;
+}
+

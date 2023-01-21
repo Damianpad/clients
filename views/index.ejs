@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,16 +8,27 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body> -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
     <title>Document</title>
 </head>
 <body>
+
+    <h2>Add A Client:</h2>
+
+    <form action="/addClient" method="POST">
+        <input type="text" placeholder="Client Name" name="clientName">
+        <input type="text" placeholder="Client Phone" name="clientPhone">
+        <input type="submit">
+    </form>
+
     <h1>Clients: </h1>
     <ul class="clients">
     <% for(let i=0; i < clients.length; i++) {%>
@@ -30,18 +41,13 @@
                 <span><%= clients[i].clients %></span>
             <% } %>     -->
             <span class='fa fa-trash'></span>
+            <span class="fa-solid fa-pen-to-square"></span>
         </li>
     <% } %>
     </ul>
 
 
-    <h2>Add A Todo:</h2>
 
-    <form action="/addClient" method="POST">
-        <input type="text" placeholder="Client Name" name="clientName">
-        <input type="text" placeholder="Client Phone" name="clientPhone">
-        <input type="submit">
-    </form>
     
 
     <script src='js/main.js'></script>
