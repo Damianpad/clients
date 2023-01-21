@@ -11,8 +11,8 @@ async function deleteItem(){
             method: 'delete',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
-              'name': itemText,
-              'phone': itemText
+              'name': itemText
+            //   'phone': itemText
             })
           })
         const data = await response.json()

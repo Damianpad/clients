@@ -59,7 +59,7 @@ MongoClient.connect(dbConnectionStr, { useUnifiedTopology: true })
         })
         
         app.delete('/deleteClient', (req, res) => {
-            db.collection('clients').deleteOne({name: req.body.itemFromJS})
+            db.collection('clients').deleteOne({name: req.body.name})
                 .then(result => {
                     console.log('Client Deleted')
                     res.json('Deleted Client')
