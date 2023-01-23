@@ -40,3 +40,7 @@ span {
     color: red;
 }
 
+.fa-pen-to-square:hover {
+    cursor: pointer;
+    color: green;
+}

@@ -42,19 +42,17 @@ MongoClient.connect(dbConnectionStr, { useUnifiedTopology: true })
                 .catch(error => console.error(error))
         })
 
-        app.put('/addClient', (req, res) => {
-            clientCollection.findOneAndUpdate(
-                // { name: 'Yoda' },
-                {
-                  $set: {
-                    clients: req.body.clients
-                  }
-                },
-                {
-                  upsert: true
-                }
-            )
-            .then(result => res.json('Success'))
+        app.put('/editClient', (req, res) => {
+            console.log('editing...');
+            db.collection('clients').updateOne({name: req.body.name},     
+            {   
+                sort: {_id: -1},
+                upsert: false
+            })
+            .then(result => {
+                res.json('Success')
+                console.log('Client Deleted')
+            })
             .catch(error => console.error(error))
         })
         
